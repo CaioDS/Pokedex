@@ -57,7 +57,7 @@ class _DashboardViewState extends State<DashboardView> with SingleTickerProvider
             Container(
               height: 500,
               width: 400,
-              child: _pokemons == null ? LoadingWidget() : _testebuildAllPokemons(_pokemons),
+              child: _pokemons.isEmpty ? LoadingWidget() : _testebuildAllPokemons(_pokemons),
             ),
           ],
         ),
