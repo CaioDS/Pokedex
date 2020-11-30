@@ -20,7 +20,7 @@ class LoadingWidget extends StatelessWidget {
             padding: const EdgeInsets.all(16.0),
             child: Text(
               'Carregando...',
-              style: TextStyle(color: Colors.amber),
+              style: TextStyle(color: Colors.black),
             ),
           )
         ],

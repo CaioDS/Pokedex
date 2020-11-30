@@ -36,6 +36,7 @@ class _DashboardViewState extends State<DashboardView> with SingleTickerProvider
         title: Text("PokeDEX - Dashboard", style: TextStyle(color: Colors.grey),),
         backgroundColor: Colors.yellow,
       ),
+      backgroundColor: Color(0xfffffde0),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -55,9 +56,9 @@ class _DashboardViewState extends State<DashboardView> with SingleTickerProvider
               ),
             ),
             Container(
-              height: 500,
+              height: 550,
               width: 400,
-              child: _pokemons.isEmpty ? LoadingWidget() : _testebuildAllPokemons(_pokemons),
+              child: _pokemons.isEmpty ? LoadingWidget() : _buildAllPokemons(_pokemons),
             ),
           ],
         ),
@@ -66,15 +67,6 @@ class _DashboardViewState extends State<DashboardView> with SingleTickerProvider
   }
 
   _buildAllPokemons(List<Pokemon> _list) {
-    return ListView.builder(
-      itemCount: _list.length,
-      itemBuilder: (context, i) {
-        return _buildCardPokemons(_list[i]);
-      },
-    );
-  }
-
-  _testebuildAllPokemons(List<Pokemon> _list) {
     return GridView.count(
       crossAxisCount: 2,
       children: List.generate(_list.length, (index) {
@@ -85,6 +77,8 @@ class _DashboardViewState extends State<DashboardView> with SingleTickerProvider
 
   _buildCardPokemons(Pokemon pokemon) {
     return Card(
+      elevation: 5,
+      color: Color(0xfffff77a),
       child: Container(
         child: Column(
           children: [
@@ -99,7 +93,6 @@ class _DashboardViewState extends State<DashboardView> with SingleTickerProvider
                     imageBuilder: (context, imageProvider) => Container(
                       width: 800,
                       decoration: BoxDecoration(
-                        //color: Colors.amber,
                         shape: BoxShape.rectangle,
                         image: DecorationImage(
                           image: imageProvider,
@@ -113,7 +106,7 @@ class _DashboardViewState extends State<DashboardView> with SingleTickerProvider
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(pokemon.name, style: TextStyle(color: Colors.grey, fontSize: 20),),
+                Text(pokemon.name, style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.bold),),
               ],
             ),
           ],
